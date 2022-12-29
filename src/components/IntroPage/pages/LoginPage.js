@@ -42,7 +42,7 @@ const LoginPage = () => {
                 />
             </div>
 
-            <Link to="/signin">
+            <Link to="/home">
                 <Button
                     buttonPosition="btn-bottom"
                     buttonColors="btn-primary"

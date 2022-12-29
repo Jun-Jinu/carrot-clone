@@ -9,7 +9,7 @@ import Button from "../../utils/Button";
 const FirstPage = () => {
     return (
         <div className="page-container">
-            <div className="img-container">
+            <div className="intro-img-container">
                 <img className="logo" src={carrot_logo} alt="당근로고"></img>
             </div>
             <span className="discription-title">당신 근처의 당근마켓</span>

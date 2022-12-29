@@ -6,6 +6,7 @@ import FirstPage from "./components/IntroPage/pages/FirstPage";
 import SignInPage from "./components/IntroPage/pages/SignInPage";
 import AuthorizePage from "./components/IntroPage/pages/AuthorizePage";
 import LoginPage from "./components/IntroPage/pages/LoginPage";
+import HomePage from "./components/MainPage/pages/HomePage";
 
 function App() {
     return (
@@ -16,6 +17,8 @@ function App() {
                     <Route path="/signin" element={<SignInPage />} />
                     <Route path="/authorize" element={<AuthorizePage />} />
                     <Route path="/login" element={<LoginPage />} />
+
+                    <Route path="/home" element={<HomePage />} />
                 </Routes>
             </BrowserRouter>
         </div>
