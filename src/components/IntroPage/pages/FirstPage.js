@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import "./FirstPage.scss";
+import "../style/IntroPages.scss";
 
-import carrot_logo from "../../resources/carrot_img.png";
-import Button from "../utils/Button";
+import carrot_logo from "../../../resources/carrot_img.png";
+import Button from "../../utils/Button";
 
 const FirstPage = () => {
     return (
@@ -18,17 +19,21 @@ const FirstPage = () => {
                 <br />
                 지금 내 동내를 선택하고 시작해보세요!
             </span>
-            <Button
-                buttonPosition="btn-bottom"
-                buttonColors="btn-primary"
-                buttonSize="btn-large"
-                onClick="#"
-                type="button"
-                name="시작하기"
-            />
+            <Link to="/signin">
+                <Button
+                    buttonPosition="btn-bottom"
+                    buttonColors="btn-primary"
+                    buttonSize="btn-large"
+                    onClick=""
+                    type="button"
+                    name="시작하기"
+                />
+            </Link>
             <div className="position-bottom">
                 <span>이미 계정이 있나요?</span>
-                <b className="color-primary">로그인</b>
+                <Link to="/login" style={{ textDecoration: "none" }}>
+                    <span className="color-primary">로그인</span>
+                </Link>
             </div>
         </div>
     );

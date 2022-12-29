@@ -1,0 +1,76 @@
+.page-container {
+    text-align: center;
+    font-size: 1.3em;
+
+    align-items: center;
+}
+
+.img-container {
+    margin: 20vh auto 5vh auto;
+}
+
+.logo {
+    width: 60vw;
+    max-height: 30vh;
+}
+
+.discription-title {
+    font-size: 1.5em;
+    font-weight: 800;
+}
+
+.discription-content {
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+.color-primary {
+    color: #ff931e;
+}
+
+.position-bottom {
+    position: fixed;
+    left: 0;
+    bottom: 5vh;
+    width: 100%;
+}
+
+.guide {
+    padding: 15vh 0 0 0;
+
+    font-weight: 400;
+}
+
+.top-guide {
+    text-align: start;
+
+    padding: 2.5vh 2.5vw;
+}
+
+//입력란에 사용되는 css
+.text-input {
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: bold;
+    flex-direction: column;
+    margin: 10px 2.5vw;
+}
+
+.text-input label {
+    text-align: start;
+    font-size: 1.4em;
+    font-weight: 400;
+    padding-left: 5px;
+    padding-bottom: 10px;
+}
+
+.input-blank {
+    max-width: 95vw;
+    height: 3vh;
+    border: solid 1.5px #000;
+    border-radius: 5px;
+
+    padding: 10px 110px 10px 30px;
+    background: #fff;
+    font-size: 1.2rem;
+}

@@ -1,6 +1,8 @@
 import React from "react";
 import "./Button.scss"
 
+import { useNavigate } from "react-router-dom";
+
 const POSITIONS = ["btn-bottom"];
 
 const COLORS = ["btn-primary"];
