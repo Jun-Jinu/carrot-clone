@@ -1,0 +1,42 @@
+.menu-container {
+    width: 100vw;
+    margin-top: 20px;
+
+    display: flex;
+}
+
+.menu-icon {
+    width: 20vw;
+    height: 10vh;
+
+    text-align: center;
+    vertical-align: center;
+}
+
+.menu-name {
+    font-size: 30px;
+    font-weight: 500;
+
+    padding: 10px 0 10px 20px;
+}
+
+.nickname {
+    font-size: 40px;
+}
+
+.btn-profile-change {
+    width: 90vw;
+    height: 7.5vh;
+
+    font-size: 24px;
+    font-weight: 400;
+
+    border: none;
+    border-radius: 5px;
+
+    margin: 10px 0;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
