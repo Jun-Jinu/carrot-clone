@@ -24,7 +24,6 @@ const MenuProfile = () => {
             <div className="profile-btn-container">
                 <button className="btn-profile-change">프로필 수정</button>
             </div>
-
             <Link to="/" style={{ textDecoration: "none" }}>
                 <div className="menu-container">
                     <div className="menu-icon">
@@ -34,7 +33,6 @@ const MenuProfile = () => {
                     <span className="menu-name">판매내역</span>
                 </div>
             </Link>
-
             <Link to="/" style={{ textDecoration: "none" }}>
                 <div className="menu-container">
                     <div className="menu-icon">
@@ -43,7 +41,7 @@ const MenuProfile = () => {
                     <span className="menu-name">관심목록</span>
                 </div>
             </Link>
-
+            1
             <Link to="/" style={{ textDecoration: "none" }}>
                 <div className="menu-container">
                     <div className="menu-icon">
