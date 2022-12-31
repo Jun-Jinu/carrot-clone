@@ -7,6 +7,7 @@ import SignInPage from "./components/IntroPage/pages/SignInPage";
 import AuthorizePage from "./components/IntroPage/pages/AuthorizePage";
 import LoginPage from "./components/IntroPage/pages/LoginPage";
 import HomePage from "./components/MainPage/pages/HomePage";
+import SearchPage from "./components/MainPage/pages/SearchPage";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/login" element={<LoginPage />} />
 
                     <Route path="/home" element={<HomePage />} />
+                    <Route path="/search" element={<SearchPage />} />
                 </Routes>
             </BrowserRouter>
         </div>

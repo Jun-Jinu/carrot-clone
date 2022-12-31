@@ -1,0 +1,29 @@
+.tab-bar {
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 15vh;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    border-top: 2px solid #dadada;
+}
+
+.bar-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    padding-left: 2rem;
+}
+
+.icon-container {
+    text-align: center;
+    cursor: pointer;
+}
+
+.bar-menu {
+    font-size: 1.3em;
+    font-weight: 500;
+}

@@ -14,7 +14,7 @@ import "./MenuProfile.scss";
 
 const MenuProfile = () => {
     return (
-        <>
+        <div className="contents-view">
             <div className="menu-container">
                 <div className="menu-icon">
                     <TbUserCircle size="60px" />
@@ -41,7 +41,6 @@ const MenuProfile = () => {
                     <span className="menu-name">관심목록</span>
                 </div>
             </Link>
-            1
             <Link to="/" style={{ textDecoration: "none" }}>
                 <div className="menu-container">
                     <div className="menu-icon">
@@ -50,7 +49,7 @@ const MenuProfile = () => {
                     <span className="menu-name">채팅목록</span>
                 </div>
             </Link>
-        </>
+        </div>
     );
 };
 

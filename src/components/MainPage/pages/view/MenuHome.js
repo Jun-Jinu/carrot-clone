@@ -10,7 +10,7 @@ const MenuHome = () => {
     const likeCount = 15;
 
     return (
-        <>
+        <div className="contents-view">
             <Link to="/">
                 <div className="newfeed-img-container">
                     <span className="newfeed-icon">+</span>
@@ -42,7 +42,7 @@ const MenuHome = () => {
                     )}
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
