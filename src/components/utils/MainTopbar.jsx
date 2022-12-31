@@ -6,9 +6,9 @@ import {
 
 import { Link } from "react-router-dom";
 
-import './MainTopbar.scss'
+import './MainTopBar.scss'
 
-const MainTopbar = (props) => {
+const MainTopBar = (props) => {
 
     return (<div className="top-bar">
     <span className="bar-title">
@@ -26,4 +26,4 @@ const MainTopbar = (props) => {
 
 }
 
-export default MainTopbar;
+export default MainTopBar;

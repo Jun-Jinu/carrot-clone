@@ -1,0 +1,62 @@
+.card-container {
+    width: 100vw;
+    height: 20vh;
+
+    min-height: 100px;
+
+    display: flex;
+
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+.card-container:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-img-container {
+    float: left;
+}
+
+.card-info {
+    position: relative;
+    margin: 1vh 0 0 10px;
+    width: 100%;
+}
+
+.card-img {
+    height: 14vh;
+    max-width: 530px;
+    margin: 3vh 20px;
+    border-radius: 10px;
+}
+
+.card-name {
+    font-size: 1.6rem;
+    font-weight: 500;
+    padding: 10px 0px;
+}
+
+.card-place {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #a7a7a7;
+    padding: 10px 0px;
+}
+
+.card-price {
+    font-size: 1.6rem;
+    font-weight: 600;
+    padding: 10px 0px;
+}
+
+.card-like {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+}
+
+.like-count {
+    font-size: 24px;
+    font-weight: 300;
+}

@@ -10,7 +10,7 @@ import {
 
 import { Link } from "react-router-dom";
 
-import './MainTopbar.scss'
+import './MenuTopBar.scss'
 
 const MenuTopbar = (props) => {
     const navigate = useNavigate();
@@ -31,8 +31,7 @@ const MenuTopbar = (props) => {
                 {props.title}
             </span>
         </div>
-        <div className="blank-space"></div>
-        {/* 이것도 공간을 100px정도?? */}
+        <div className="blank-space"><span></span></div>
     </div>
     );
 }

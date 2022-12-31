@@ -24,7 +24,7 @@ const MenuProfile = () => {
             <div className="profile-btn-container">
                 <button className="btn-profile-change">프로필 수정</button>
             </div>
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/sell_list" style={{ textDecoration: "none" }}>
                 <div className="menu-container">
                     <div className="menu-icon">
                         <IoDocumentTextOutline size="50px" />
@@ -33,7 +33,7 @@ const MenuProfile = () => {
                     <span className="menu-name">판매내역</span>
                 </div>
             </Link>
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/like_list" style={{ textDecoration: "none" }}>
                 <div className="menu-container">
                     <div className="menu-icon">
                         <IoHeartOutline size="50px" />
@@ -41,7 +41,7 @@ const MenuProfile = () => {
                     <span className="menu-name">관심목록</span>
                 </div>
             </Link>
-            <Link to="/" style={{ textDecoration: "none" }}>
+            <Link to="/chatting_list" style={{ textDecoration: "none" }}>
                 <div className="menu-container">
                     <div className="menu-icon">
                         <IoChatbubblesOutline size="50px" />

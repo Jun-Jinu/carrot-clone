@@ -14,7 +14,7 @@ import { WiDirectionLeft } from "react-icons/wi";
 
 import "../style/HomePage.scss";
 
-import MainTopbar from "../../utils/MainTopbar";
+import MainTopBar from "../../utils/MainTopBar";
 import MainTabBar from "../../utils/MainTabBar";
 
 import MenuHome from "./view/MenuHome";
@@ -25,7 +25,7 @@ const HomePage = () => {
 
     return (
         <div>
-            <MainTopbar menuNum={barMenu} />
+            <MainTopBar menuNum={barMenu} />
 
             {barMenu === 0 ? <MenuHome /> : <MenuProfile />}
 
