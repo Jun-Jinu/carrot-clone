@@ -4,7 +4,6 @@ import { TbUserCircle } from "react-icons/tb";
 import "./UserCard.scss"
 
 const UserCard = () => {
-    const likeCount = 15;
     return (
     <div className="user-card-container">
         <div className="user-card-img-container">
@@ -15,8 +14,6 @@ const UserCard = () => {
             <span className="user-card-name">닉네임</span>
             <br />
             <span className="user-card-content">마지막 채팅 내용</span>
-
-            
         </div>
 
         <div className="user-card-img-container">
