@@ -1,0 +1,47 @@
+.bottom-bar {
+    width: 100vw;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 10vh;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-top: 2px solid #dadada;
+}
+
+.bottom-left-container {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    vertical-align: center;
+}
+
+.bottom-left-icon {
+    font-size: 3rem;
+    font-weight: 600;
+    padding: 0 2rem;
+    border-right: 3px solid #dadada;
+    cursor: pointer;
+}
+
+.bottom-left-price {
+    font-size: 1.3em;
+    font-weight: 400;
+    padding: 0 1rem;
+}
+
+.bottombar-right-btn {
+    width: 140px;
+    height: 60px;
+
+    font-size: 20px;
+    color: #fff;
+    background-color: #ff931e;
+    border: none;
+    border-radius: 5px;
+    margin-right: 20px;
+}
