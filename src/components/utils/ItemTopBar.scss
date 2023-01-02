@@ -1,0 +1,19 @@
+.item-top-bar {
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 15vh;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-left {
+    padding: 0 2rem;
+}
+
+.item-right {
+    padding-right: 2rem;
+}
