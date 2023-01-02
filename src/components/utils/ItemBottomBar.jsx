@@ -1,8 +1,8 @@
 import React, {useState} from "react";
+import { Link } from "react-router-dom";
+import { IoHeartOutline, IoHeart } from "react-icons/io5";
 
 import './ItemBottomBar.scss';
-
-import { IoHeartOutline, IoHeart } from "react-icons/io5";
 
 const ItemBottomBar = (props) => {
     const [isLike, setIsLike] = useState(false);
@@ -18,7 +18,9 @@ const ItemBottomBar = (props) => {
                 <div className="bottom-left-price">가격</div>
             </div>
 
-            <button className="bottombar-right-btn">관련 채팅보기</button>
+            <Link to="/chatting_list">
+                <button className="bottombar-right-btn">관련 채팅보기</ button>
+            </Link>
         </div>
     );
 }

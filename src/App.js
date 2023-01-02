@@ -10,7 +10,8 @@ import HomePage from "./components/MainPage/pages/HomePage";
 import ItemPage from "./components/MainPage/pages/ItemPage";
 import SearchPage from "./components/MainPage/pages/SearchPage";
 import CategoryPage from "./components/MainPage/pages/CategoryPage";
-import SellListPage from "./components/MainPage/pages/SellListPage";
+import MySellListPage from "./components/MainPage/pages/MySellListPage";
+import UserSellList from "./components/MainPage/pages/UserSellList";
 import ChattingListPage from "./components/MainPage/pages/ChattingListPage";
 import LikeListPage from "./components/MainPage/pages/LikeListPage";
 import NewFeedPage from "./components/MainPage/pages/NewFeedPage";
@@ -30,7 +31,8 @@ function App() {
                     <Route path="/item" element={<ItemPage />} />
                     <Route path="/search" element={<SearchPage />} />
                     <Route path="/category" element={<CategoryPage />} />
-                    <Route path="/sell_list" element={<SellListPage />} />
+                    <Route path="/my_sell_list" element={<MySellListPage />} />
+                    <Route path="/user_sell_list" element={<UserSellList />} />
                     <Route
                         path="/chatting_list"
                         element={<ChattingListPage />}

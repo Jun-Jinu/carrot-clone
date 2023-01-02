@@ -3,13 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 import { WiDirectionLeft } from "react-icons/wi";
 
-import {
-    IoSearch,
-    IoReorderThree,
-} from "react-icons/io5";
-
-import { Link } from "react-router-dom";
-
 import './MenuTopBar.scss'
 
 const MenuTopbar = (props) => {

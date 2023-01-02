@@ -215,10 +215,11 @@ const NewFeedView = () => {
                 type="number"
                 placeholder="가격(원)"
             />
-            <div className="newfeed-list newfeed-guide">
-                게시글 내용을 작성해주세요. 가짜 품목 및 판매금지품목은 게시가
-                제한됩니다.
-            </div>
+            <textarea
+                className="newfeed-list newfeed-guide"
+                placeholder="게시글 내용을 작성해주세요. 가짜 품목 및 판매금지품목은 게시가
+                제한됩니다."
+            ></textarea>
         </div>
     );
 };

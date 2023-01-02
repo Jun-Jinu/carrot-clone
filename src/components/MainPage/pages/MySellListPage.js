@@ -5,7 +5,7 @@ import CategoryTab from "../../utils/CategoryTab";
 import ItemCard from "../../utils/ItemCard";
 import ItemChangeBar from "../../utils/ItemChangeBar";
 
-const SellList = () => {
+const MySellList = () => {
     const [menuTab, setMenuTab] = useState(0);
     const menuArr = ["판매중", "거래완료"];
 
@@ -28,4 +28,4 @@ const SellList = () => {
     );
 };
 
-export default SellList;
+export default MySellList;

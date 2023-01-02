@@ -41,7 +41,9 @@ const ItemTopbar = (props) => {
                                     openMenuModalHandler();
                                 }}
                             >
-                                <div className="modal-text">게시글 수정</div>
+                                <Link to="/new_feed">
+                                    <div className="modal-text">게시글 수정</div>
+                                </Link>
                             </div>
 
                             <div className="modal-list"
