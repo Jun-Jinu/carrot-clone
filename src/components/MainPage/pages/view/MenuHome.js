@@ -8,7 +8,7 @@ import "../../style/HomePage.scss";
 const MenuHome = () => {
     return (
         <div className="contents-view">
-            <Link to="/">
+            <Link to="/new_feed">
                 <div className="newfeed-img-container">
                     <span className="newfeed-icon">+</span>
                 </div>
