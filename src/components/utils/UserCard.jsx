@@ -11,12 +11,16 @@ const UserCard = () => {
         </div>
 
         <div className="user-card-info">
-            <span className="user-card-name">닉네임</span>
-            <br />
-            <span className="user-card-content">마지막 채팅 내용</span>
+            <div className="info-container">
+                <span className="user-card-text">닉네임</span>
+            </div>
+            <div className="info-container">
+                <span className="user-card-text user-card-content">마지막 채팅 내용</span>
+            </div>
         </div>
 
         <div className="user-card-img-container">
+            {/* 테스트 이미지 */}
             <img
                 className="user-card-img"
                 src="https://sitem.ssgcdn.com/64/22/91/item/1000438912264_i2_290.jpg"

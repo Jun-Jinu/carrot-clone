@@ -20,14 +20,17 @@
     float: left;
 }
 
-.user-card-name {
+.info-container {
+    height: 50%;
+}
+
+.user-card-text {
     font-size: 1.6rem;
     font-weight: 500;
 }
 
 .user-card-content {
-    font-size: 1.6rem;
-    font-weight: 600;
+    color: #dadada;
 }
 
 .user-card-info {

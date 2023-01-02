@@ -60,3 +60,20 @@
     font-size: 24px;
     font-weight: 300;
 }
+
+.card-traded_box {
+    position: absolute;
+
+    top: 0;
+    right: 15px;
+
+    width: 70px;
+    height: 25px;
+
+    color: #fff;
+    font-size: 20px;
+    background-color: #000;
+
+    padding: 12px;
+    border-radius: 10px;
+}

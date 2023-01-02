@@ -4,8 +4,11 @@ import React from "react";
 import { IoHeartOutline } from "react-icons/io5";
 import "./ItemCard.scss"
 
-const ItemCard = () => {
+const ItemCard = (props) => {
+    //like랑 거래완료 받아야 함..
     const likeCount = 15;
+    const traded = true;
+    
     return (
     <div className="card-container">
         <div className="card-img-container">
@@ -23,14 +26,23 @@ const ItemCard = () => {
             <span className="card-price">5,000원</span>
 
             {/* 0이 아닌경우에만 표시 */}
-            {likeCount !== 0 && (
+            {
+                props.likeCount !== 0 && (
                 <div className="card-like">
                     <span className="like-count">
-                        <IoHeartOutline size="20px" /> {likeCount}
+                        <IoHeartOutline size="20px" /> {props.likeCount}
                     </span>
                 </div>
             )}
+
+{
+            props.traded === true && (<div className="card-traded_box">거래완료</div>
+        )}
+            
         </div>
+
+        
+
     </div>
     );
 }

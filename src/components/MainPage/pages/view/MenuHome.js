@@ -6,9 +6,6 @@ import ItemCard from "../../../utils/ItemCard";
 import "../../style/HomePage.scss";
 
 const MenuHome = () => {
-    //여기 숫자는 예시
-    const likeCount = 15;
-
     return (
         <div className="contents-view">
             <Link to="/">
@@ -16,7 +13,7 @@ const MenuHome = () => {
                     <span className="newfeed-icon">+</span>
                 </div>
             </Link>
-            <ItemCard />
+            <ItemCard likeCount={22} traded={false} />
         </div>
     );
 };
