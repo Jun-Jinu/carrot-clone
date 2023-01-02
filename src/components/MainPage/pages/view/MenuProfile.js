@@ -21,9 +21,12 @@ const MenuProfile = () => {
                 </div>
                 <span className="menu-name nickname">닉네임</span>
             </div>
-            <div className="profile-btn-container">
-                <button className="btn-profile-change">프로필 수정</button>
-            </div>
+
+            <Link to="/myprofile" style={{ textDecoration: "none" }}>
+                <div className="profile-btn-container">
+                    <button className="btn-profile-change">프로필 수정</button>
+                </div>
+            </Link>
             <Link to="/sell_list" style={{ textDecoration: "none" }}>
                 <div className="menu-container">
                     <div className="menu-icon">

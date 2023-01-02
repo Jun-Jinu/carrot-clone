@@ -13,6 +13,7 @@ import SellListPage from "./components/MainPage/pages/SellListPage";
 import ChattingListPage from "./components/MainPage/pages/ChattingListPage";
 import LikeListPage from "./components/MainPage/pages/LikeListPage";
 import NewFeedPage from "./components/MainPage/pages/NewFeedPage";
+import MyProfilePage from "./components/MainPage/pages/MyProfilePage";
 
 function App() {
     return (
@@ -34,6 +35,7 @@ function App() {
                     />
                     <Route path="/like_list" element={<LikeListPage />} />
                     <Route path="/new_feed" element={<NewFeedPage />} />
+                    <Route path="/myprofile" element={<MyProfilePage />} />
                 </Routes>
             </BrowserRouter>
         </div>
