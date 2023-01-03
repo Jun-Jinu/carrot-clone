@@ -1,6 +1,6 @@
 import React from "react";
 
-import './CategoryTab.scss';
+import './styles/CategoryTab.scss';
 
 const CategoryTab = (props) => {
     return (

@@ -2,17 +2,23 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { IoHeartOutline } from "react-icons/io5";
-import "./ItemCard.scss"
+import "./styles/ItemCard.scss"
 
 const ItemCard = (props) => {
+    let link = "/item";
+    if (props.menuNum === 1 ){
+        link = "/item_selling";
+    }
+    
     return (
         <>
-        <Link to="/item">
+            <Link to={link}>
                 <div className="card-container">
                     <div className="card-img-container">
                         <img
                             className="card-img"
                             src="https://sitem.ssgcdn.com/64/22/91/item/1000438912264_i2_290.jpg"
+                            alt="example-img"
                         ></img>
                     </div>
 
@@ -38,9 +44,6 @@ const ItemCard = (props) => {
                     )}
                         
                     </div>
-
-                    
-
                 </div>
             </Link>
         </>

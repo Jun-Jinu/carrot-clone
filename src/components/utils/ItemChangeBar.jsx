@@ -1,5 +1,5 @@
 import React from 'react'
-import './ItemChangeBar.scss'
+import './styles/ItemChangeBar.scss'
 
 const ItemChangeBar = (props) => {
     return (

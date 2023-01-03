@@ -1,0 +1,53 @@
+.contents-view {
+    position: fixed;
+    top: 15vh;
+    left: 0;
+    width: 100vw;
+    height: 70vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+//
+.newfeed-img-container {
+    position: fixed;
+    bottom: 20vh;
+    right: 10vw;
+
+    text-align: center;
+
+    width: 80px;
+    height: 80px;
+
+    background-color: var(--orange);
+    border-radius: 50px;
+}
+
+.newfeed-icon {
+    font-size: 60px;
+    color: #fff;
+}
+
+.pointer {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.input-search {
+    width: 50vw;
+    height: 5vh;
+    font-size: 2em;
+
+    background-color: #dadada88;
+    padding: 10px 110px 10px 30px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 3vw;
+}

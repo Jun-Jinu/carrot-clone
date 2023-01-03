@@ -1,0 +1,48 @@
+.user-card-container {
+    width: 100vw;
+    height: 15vh;
+
+    padding: 20px 0;
+
+    min-height: 100px;
+
+    display: flex;
+
+    border-bottom: 2px solid #dadada;
+    transition: 0.3s;
+}
+.user-card-container:hover {
+    cursor: pointer;
+    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.user-card-img-container {
+    float: left;
+}
+
+.info-container {
+    height: 50%;
+}
+
+.user-card-text {
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.user-card-content {
+    color: #dadada;
+}
+
+.user-card-info {
+    position: relative;
+    margin: 1vh 0 0 10px;
+    padding: 20px;
+    width: 100%;
+}
+
+.user-card-img {
+    height: 14vh;
+    max-width: 530px;
+    margin: auto 20px;
+    border-radius: 10px;
+}
