@@ -16,13 +16,15 @@ import ChattingListPage from "./components/MainPage/pages/ChattingListPage";
 import LikeListPage from "./components/MainPage/pages/LikeListPage";
 import NewFeedPage from "./components/MainPage/pages/NewFeedPage";
 import MyProfilePage from "./components/MainPage/pages/MyProfilePage";
+import ChatPage from "./components/MainPage/pages/ChatPage";
 
 function App() {
     return (
         <div className="App">
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<FirstPage />} />
+                    <Route path="/" element={<ChatPage />} />
+                    {/* <Route path="/" element={<FirstPage />} /> */}
                     <Route path="/signin" element={<SignInPage />} />
                     <Route path="/authorize" element={<AuthorizePage />} />
                     <Route path="/login" element={<LoginPage />} />
