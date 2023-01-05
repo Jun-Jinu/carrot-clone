@@ -24,6 +24,9 @@ const MySellList = () => {
 
             <ItemCard menuNum={1} likeCount={10} traded={false} />
             <ItemChangeBar />
+
+            <ItemCard menuNum={1} likeCount={0} traded={false} />
+            <ItemChangeBar />
         </>
     );
 };
