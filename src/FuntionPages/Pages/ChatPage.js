@@ -10,8 +10,6 @@ const ChatPage = () => {
             <MenuTopbar title="닉네임" />
             <ItemCard />
             <ChatView />
-
-            <div></div>
         </>
     );
 };

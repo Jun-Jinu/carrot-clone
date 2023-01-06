@@ -123,7 +123,7 @@ const MyProfile = () => {
 
                             <ModalList
                                 onClick={() => {
-                                    //프로필사진 초기화 후 모달 닫기
+                                    // 모달 닫시
                                     openModalHandler();
                                 }}
                             >
