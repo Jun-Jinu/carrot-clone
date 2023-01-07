@@ -9,8 +9,11 @@
 .menu-modal-backdrop {
     position: fixed;
     display: flex;
+
+    //이거 경고뜨긴 하는데 적용됨
     justify-content: end;
     align-items: start;
+
     left: 0;
     right: 0;
     bottom: 0;

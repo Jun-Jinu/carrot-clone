@@ -1,22 +1,6 @@
-import "./App.css";
+import "./styles/App.css";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-// import FirstPage from "./components/IntroPage/pages/FirstPage";
-// import SignInPage from "./components/IntroPage/pages/SignInPage";
-// import AuthorizePage from "./components/IntroPage/pages/AuthorizePage";
-// import LoginPage from "./components/IntroPage/pages/LoginPage";
-// import HomePage from "./components/MainPage/pages/HomePage";
-// import ItemPage from "./components/MainPage/pages/ItemPage";
-// import SearchPage from "./components/MainPage/pages/SearchPage";
-// import CategoryPage from "./components/MainPage/pages/CategoryPage";
-// import MySellListPage from "./components/MainPage/pages/MySellListPage";
-// import UserSellList from "./components/MainPage/pages/UserSellList";
-// import ChattingListPage from "./components/MainPage/pages/ChattingListPage";
-// import LikeListPage from "./components/MainPage/pages/LikeListPage";
-// import NewFeedPage from "./components/MainPage/pages/NewFeedPage";
-// import MyProfilePage from "./components/MainPage/pages/MyProfilePage";
-// import ChatPage from "./components/MainPage/pages/ChatPage";
 
 import {
     FirstPage,
