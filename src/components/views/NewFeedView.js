@@ -131,8 +131,7 @@ export const ItemImage = styled.img`
 `;
 
 const NewFeedView = () => {
-    const [imageNum, setImageNum] = useState(0); // 이미지 개수
-    const [imageArray, setImageArray] = useState([]); // 이미지 배열
+    const [imageArr, setImageArr] = useState([]); // 이미지 배열
     const [isOpen, setIsOpen] = useState(false); // 카테고리 모달 상태
     const [category, setCategory] = useState(null);
 
@@ -145,15 +144,21 @@ const NewFeedView = () => {
     const addImage = () => {
         //파일 추가 버튼 클릭 이벤트
         imageInput.current.click();
-
-        setImageNum(imageNum + 1);
     };
 
     const handleChange = (e) => {
-        console.log(e.target.files[0]);
+        const file = imageInput.current.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            setImageArr([reader.result, ...imageArr]);
+        };
     };
 
-    const deleteImage = () => {};
+    const deleteImage = (e) => {
+        const src = e.target.getAttribute("src");
+        setImageArr(imageArr.filter((imgSrc) => imgSrc !== src));
+    };
 
     return (
         <div className="newfeed-container">
@@ -169,6 +174,7 @@ const NewFeedView = () => {
             </button>
             <input
                 type="file"
+                accept="image/*"
                 style={{ display: "none" }}
                 ref={imageInput}
                 onChange={handleChange}
@@ -204,19 +210,22 @@ const NewFeedView = () => {
                     <AddImageBtn onClick={addImage}>
                         <AiOutlineCamera size="40px" />
                         <span>
-                            <span>{imageNum}</span> / 10
+                            <span>{imageArr.length}</span> / 10
                         </span>
                     </AddImageBtn>
                 </ImageContainer>
 
-                <ImageContainer>
-                    <ItemImage src="https://sitem.ssgcdn.com/64/22/91/item/1000438912264_i2_290.jpg" />
-                    <AiOutlineCloseCircle
-                        className="img-delete-btn"
-                        onClick={deleteImage}
-                        // 여기 삭제 추가 버튼 인덱스 생각해야함
-                    />
-                </ImageContainer>
+                {imageArr.map((el, index) => (
+                    <ImageContainer key={index}>
+                        <ItemImage src={el}></ItemImage>
+                        <AiOutlineCloseCircle
+                            className="img-delete-btn"
+                            src={el}
+                            onClick={deleteImage}
+                            // 여기 삭제 추가 버튼 인덱스 생각해야함
+                        />
+                    </ImageContainer>
+                ))}
             </div>
             <input className="newfeed-list" type="text" placeholder="제목" />
             <button
