@@ -1,18 +1,51 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
+import { useRecoilValue } from "recoil";
+import { webUrlState } from "../../recoil/Recoil";
 
 import "../styles/IntroPages.scss";
 
 import Button from "../../components/utils/Button";
 
 const SignInPage = () => {
+    const url = useRecoilValue(webUrlState);
+
     const [userInfo, setUserInfo] = useState({
         email: "",
-        password: "",
+        pw: "",
         name: "",
         phone: "",
-        nickname: "",
+        nickName: "",
     });
+
+    const signUp = () => {
+        axios
+            .post(
+                url + "api/user/signup",
+                userInfo
+                // {
+                //     email: "1",
+                //     pw: "1",
+                //     name: "1",
+                //     phone: "1",
+                //     nickName: "12",
+                // }
+            )
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err));
+    };
+    // const signUp = () => {
+    //     axios
+    //         .post("http://52.231.107.168:3000/api/v1/website", frm, {
+    //             headers: {
+    //                 //Authorization: `Bearer ${}`,
+    //             },
+    //         })
+    //         .then((data) => console.log(data))
+    //         .catch((err) => console.log(err));
+    // };
 
     return (
         <div className="page-container">
