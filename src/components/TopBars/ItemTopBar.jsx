@@ -84,6 +84,8 @@ const ItemTopbar = (props) => {
                     <WiDirectionLeft size="80px" onClick={() => navigate(-1)}/>
                     <AiTwotoneHome size="80px" onClick={() => navigate("../home")}/>
                 </div>
+                
+                
                 {props.menuNum === 1 ? (<div className="item-right pointer" onClick={openMenuModalHandler}><AiOutlineMore size="80px"/></div>) :(<div></div>)}
                 
             </div>

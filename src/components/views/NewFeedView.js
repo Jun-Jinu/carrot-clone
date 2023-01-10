@@ -132,6 +132,7 @@ export const ItemImage = styled.img`
 
 const NewFeedView = () => {
     const [imageNum, setImageNum] = useState(0); // 이미지 개수
+    const [imageArray, setImageArray] = useState([]); // 이미지 배열
     const [isOpen, setIsOpen] = useState(false); // 카테고리 모달 상태
     const [category, setCategory] = useState(null);
 
@@ -147,6 +148,7 @@ const NewFeedView = () => {
 
         setImageNum(imageNum + 1);
     };
+
     const handleChange = (e) => {
         console.log(e.target.files[0]);
     };

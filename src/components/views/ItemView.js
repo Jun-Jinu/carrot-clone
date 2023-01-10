@@ -7,6 +7,7 @@ import "./styles/ItemView.scss";
 
 export const SellingItem = (props) => {
     return (
+        //클릭시 이벤트를 추가해줘야 함
         <div className="item-selling-card">
             <img className="item-img" src={props.src} />
             <span className="item-title">{props.title}</span>

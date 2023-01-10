@@ -73,6 +73,7 @@ export const ModalText = styled.span`
 const MyProfile = () => {
     const [isChange, setIsChange] = useState(false);
     const [isOpen, setIsOpen] = useState(false); // 하단 모달 상태
+    const [imgFileSrc, setImgFileSrc] = useState("");
     const imageInput = useRef(); //이미지 삽입 참조
 
     const changeProfileImg = () => {
@@ -80,8 +81,17 @@ const MyProfile = () => {
         imageInput.current.click();
     };
 
-    const handleChange = (e) => {
-        console.log(e.target.files[0]);
+    const thumnailChange = (e) => {
+        const file = imageInput.current.files[0];
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+            setImgFileSrc(reader.result);
+            // console.log(reader.result);
+        };
+
+        //완료버튼 활성화
+        setIsChange(true);
     };
 
     const nicknameChange = (e) => {
@@ -96,9 +106,10 @@ const MyProfile = () => {
         <div className="myprofile-container">
             <input
                 type="file"
+                accept="image/*"
                 style={{ display: "none" }}
                 ref={imageInput}
-                onChange={handleChange}
+                onChange={thumnailChange}
             />
 
             <ModalContainer>
@@ -136,7 +147,16 @@ const MyProfile = () => {
             </ModalContainer>
 
             <div className="myprofile-img-container">
-                <TbUserCircle size="300px" />
+                {isChange === true ? (
+                    <img
+                        className="myprofile-img"
+                        src={imgFileSrc}
+                        alt="프로필 이미지"
+                    />
+                ) : (
+                    <TbUserCircle className="myprofile-img" />
+                )}
+
                 <AiOutlineCamera
                     className="myprofile-btn myprofile-change-btn"
                     onClick={openModalHandler}

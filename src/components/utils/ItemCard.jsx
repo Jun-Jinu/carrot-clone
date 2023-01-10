@@ -37,9 +37,7 @@ const ItemCard = (props) => {
                             </div>
                         )}
 
-            {
-                        props.traded === true && (<div className="card-traded_box">거래완료</div>
-                    )}
+                        {props.traded === true && (<div className="card-traded_box">거래완료</div>)}
                         
                     </div>
                 </div>
