@@ -1,26 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+
+import { useRecoilValue } from "recoil";
+import { webUrlState } from "../../recoil/Recoil";
 
 import "./styles/CategoryView.scss";
-
-export const CategoryArr = [
-    "디지털기기",
-    "생활가전",
-    "가구/인테리어",
-    "유아동",
-    "생활/가공식품",
-    "유아도서",
-    "스포츠/레저",
-    "여성잡화",
-    "여성의류",
-    "남성패션/잡화",
-    "게임/취미",
-    "뷰티/미용",
-    "반려동물용품",
-    "도서/티켓/음반",
-    "식물",
-    "기타 중고물품",
-    "중고차",
-];
 
 export const ItemCategory = (props) => {
     return (
@@ -31,10 +15,30 @@ export const ItemCategory = (props) => {
 };
 
 const CategoryView = () => {
+    const url = useRecoilValue(webUrlState);
+    const access_token = localStorage.getItem("access_token");
+    const headers = {
+        Authorization: `Bearer ${access_token}`,
+    };
+
+    //카테고리 정보 저장 배열
+    const [categoryArr, setCategoryArr] = useState([]);
+
+    //카테고리 로딩
+    axios
+        .get(url + "api/item/category", {
+            headers: headers,
+        })
+        .then((res) => setCategoryArr(res.data.data, ...categoryArr))
+        .catch((err) => {
+            alert("예기치못한 에러가 발생했습니다.");
+            console.log(err);
+        });
+
     return (
         <div className="category-container">
-            {CategoryArr.map((el, index) => (
-                <ItemCategory title={el} />
+            {categoryArr.map((el, index) => (
+                <ItemCategory title={el} key={index} />
             ))}
         </div>
     );

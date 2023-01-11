@@ -32,9 +32,9 @@ const SignInPage = () => {
     };
     // const signUp = () => {
     //     axios
-    //         .post("http://52.231.107.168:3000/api/v1/website", frm, {
+    //         .post(url + "api/user/signup", frm, {
     //             headers: {
-    //                 //Authorization: `Bearer ${}`,
+    //                 //Authorization: `Bearer ${access_token}`,
     //             },
     //         })
     //         .then((data) => console.log(data))
