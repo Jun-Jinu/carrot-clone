@@ -1,15 +1,43 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
+import { useRecoilValue } from "recoil";
+import { webUrlState } from "../../recoil/Recoil";
 import "../styles/IntroPages.scss";
 
 import Button from "../../components/utils/Button";
 
 const LoginPage = () => {
+    const url = useRecoilValue(webUrlState);
+    const navigate = useNavigate();
+
     const [loginInfo, setLoginInfo] = useState({
         email: "",
-        password: "",
+        pw: "",
     });
+
+    const loginAxios = () => {
+        axios
+            .post(url + "api/user/login", loginInfo)
+            .then((res) => {
+                if (res.data.success === true) {
+                    // 로그인 성공시
+                    localStorage.setItem(
+                        "access_token",
+                        res.data.data.accessToken
+                    );
+                    navigate("/home");
+                } else {
+                    // 신호 성공, 로그인 정보 불일치
+                    alert("이메일 및 비밀번호가 올바르지 않습니다");
+                }
+            })
+            .catch((err) => {
+                console.log(err);
+                alert("예기치못한 오류가 발생했습니다");
+            });
+    };
 
     return (
         <div className="page-container">
@@ -32,26 +60,24 @@ const LoginPage = () => {
             </div>
 
             <div className="text-input">
-                <label htmlFor="password">비밀번호(PW)</label>
+                <label htmlFor="pw">비밀번호(PW)</label>
                 <input
                     className="input-blank"
                     onChange={(e) =>
-                        setLoginInfo({ ...loginInfo, password: e.target.value })
+                        setLoginInfo({ ...loginInfo, pw: e.target.value })
                     }
                     type="password"
                 />
             </div>
 
-            <Link to="/home">
-                <Button
-                    buttonPosition="btn-bottom"
-                    buttonColors="btn-primary"
-                    buttonSize="btn-large"
-                    onClick="#"
-                    type="button"
-                    name="로그인"
-                />
-            </Link>
+            <Button
+                buttonPosition="btn-bottom"
+                buttonColors="btn-primary"
+                buttonSize="btn-large"
+                onClick={loginAxios}
+                type="button"
+                name="로그인"
+            />
 
             <div className="position-bottom">
                 <span>비밀번호를 잊어버리셨나요?</span>

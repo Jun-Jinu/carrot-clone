@@ -1,15 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import "../styles/IntroPages.scss";
 
 import Button from "../../components/utils/Button";
 
 const AuthorizePage = () => {
+    const { userEmail } = useParams();
+
     return (
         <div className="page-container">
             <h2 className="guide">
-                입력하신 OO@OO.com 으로
+                입력하신 {userEmail} 으로
                 <br />
                 인증메일은 전송했습니다.
                 <br />

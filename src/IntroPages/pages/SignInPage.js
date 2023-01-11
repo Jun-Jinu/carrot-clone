@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { useRecoilValue } from "recoil";
@@ -11,6 +11,7 @@ import Button from "../../components/utils/Button";
 
 const SignInPage = () => {
     const url = useRecoilValue(webUrlState);
+    const navigate = useNavigate();
 
     const [userInfo, setUserInfo] = useState({
         email: "",
@@ -20,21 +21,14 @@ const SignInPage = () => {
         nickName: "",
     });
 
-    const signUp = () => {
+    const signUpAxios = () => {
         axios
-            .post(
-                url + "api/user/signup",
-                userInfo
-                // {
-                //     email: "1",
-                //     pw: "1",
-                //     name: "1",
-                //     phone: "1",
-                //     nickName: "12",
-                // }
-            )
-            .then((data) => console.log(data))
-            .catch((err) => console.log(err));
+            .post(url + "api/user/signup", userInfo)
+            .then((data) => navigate("/authorize/" + userInfo.email))
+            .catch((err) => {
+                alert("예기치못한 에러가 발생했습니다.");
+                console.log(err);
+            });
     };
     // const signUp = () => {
     //     axios
@@ -68,12 +62,12 @@ const SignInPage = () => {
             </div>
 
             <div className="text-input">
-                <label htmlFor="password">비밀번호(PW)</label>
+                <label htmlFor="pw">비밀번호(PW)</label>
                 <input
                     className="input-blank"
-                    value={userInfo.password}
+                    value={userInfo.pw}
                     onChange={(e) =>
-                        setUserInfo({ ...userInfo, password: e.target.value })
+                        setUserInfo({ ...userInfo, pw: e.target.value })
                     }
                     type="password"
                 />
@@ -82,9 +76,9 @@ const SignInPage = () => {
                 <label htmlFor="name">이름</label>
                 <input
                     className="input-blank"
-                    value={userInfo.email}
+                    value={userInfo.name}
                     onChange={(e) =>
-                        setUserInfo({ ...userInfo, email: e.target.value })
+                        setUserInfo({ ...userInfo, name: e.target.value })
                     }
                     type="email"
                 />
@@ -102,18 +96,28 @@ const SignInPage = () => {
                 />
             </div>
             <div className="text-input">
-                <label htmlFor="nickname">닉네임</label>
+                <label htmlFor="nickName">닉네임</label>
                 <input
                     className="input-blank"
-                    value={userInfo.nickname}
-                    onChange={(e) =>
-                        setUserInfo({ ...userInfo, nickname: e.target.value })
-                    }
+                    value={userInfo.nickName}
+                    onChange={(e) => {
+                        setUserInfo({ ...userInfo, nickName: e.target.value });
+                        console.log(userInfo);
+                    }}
                     type="text"
                 />
             </div>
 
-            <Link to="/authorize">
+            <Button
+                buttonPosition="btn-bottom"
+                buttonColors="btn-primary"
+                buttonSize="btn-large"
+                onClick={signUpAxios}
+                type="button"
+                name="가입하기"
+            />
+
+            {/* <Link to="/authorize">
                 <Button
                     buttonPosition="btn-bottom"
                     buttonColors="btn-primary"
@@ -122,7 +126,7 @@ const SignInPage = () => {
                     type="button"
                     name="가입하기"
                 />
-            </Link>
+            </Link> */}
         </div>
     );
 };
