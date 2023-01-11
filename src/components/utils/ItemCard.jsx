@@ -17,18 +17,17 @@ const ItemCard = (props) => {
                     <div className="card-img-container">
                         <img
                             className="card-img"
-                            src="https://sitem.ssgcdn.com/64/22/91/item/1000438912264_i2_290.jpg"
-                            alt="example-img"
+                            src={props.imgUrl}
+                            alt="card-img"
                         ></img>
                     </div>
 
                     <div className="card-info">
-                        <span className="card-name">맛있는 쿠앤크 케이크</span>
+                        <span className="card-name">{props.title}</span>
                         <br />
-                        <span className="card-price">5,000원</span>
+                        <span className="card-price">{props.price}</span>
 
-                        {/* 0이 아닌경우에만 표시 */}
-                        {
+                        {// 0이 아닌경우에만 표시
                             props.likeCount !== 0 && (
                             <div className="card-like">
                                 <span className="card-like-count">
@@ -37,7 +36,7 @@ const ItemCard = (props) => {
                             </div>
                         )}
 
-                        {props.traded === true && (<div className="card-traded_box">거래완료</div>)}
+                        {props.status !== "판매중" && (<div className="card-status-box">거래완료</div>)}
                         
                     </div>
                 </div>

@@ -25,15 +25,18 @@ const CategoryView = () => {
     const [categoryArr, setCategoryArr] = useState([]);
 
     //카테고리 로딩
-    axios
-        .get(url + "api/item/category", {
-            headers: headers,
-        })
-        .then((res) => setCategoryArr(res.data.data, ...categoryArr))
-        .catch((err) => {
-            alert("예기치못한 에러가 발생했습니다.");
-            console.log(err);
-        });
+    const categoryListAxios = () =>
+        axios
+            .get(url + "api/item/category", {
+                headers: headers,
+            })
+            .then((res) => setCategoryArr(res.data.data, ...categoryArr))
+            .catch((err) => {
+                alert("예기치못한 에러가 발생했습니다.");
+                console.log(err);
+            });
+
+    categoryListAxios();
 
     return (
         <div className="category-container">
