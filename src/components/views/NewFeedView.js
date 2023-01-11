@@ -1,28 +1,12 @@
 import React, { useState, useRef } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { webUrlState } from "../../recoil/Recoil";
 import styled from "styled-components";
 import { AiOutlineCamera, AiOutlineCloseCircle } from "react-icons/ai";
 
 import "./styles/NewFeedView.scss";
-
-export const CategoryArr = [
-    "디지털기기",
-    "생활가전",
-    "가구/인테리어",
-    "유아동",
-    "생활/가공식품",
-    "유아도서",
-    "스포츠/레저",
-    "여성잡화",
-    "여성의류",
-    "남성패션/잡화",
-    "게임/취미",
-    "뷰티/미용",
-    "반려동물용품",
-    "도서/티켓/음반",
-    "식물",
-    "기타 중고물품",
-    "중고차",
-];
 
 export const ModalContainer = styled.div`
     display: flex;
@@ -131,11 +115,25 @@ export const ItemImage = styled.img`
 `;
 
 const NewFeedView = () => {
+    const url = useRecoilValue(webUrlState);
+    const access_token = localStorage.getItem("access_token");
+    const headers = {
+        Authorization: `Bearer ${access_token}`,
+    };
+    const navigate = useNavigate();
+
     const [imageArr, setImageArr] = useState([]); // 이미지 배열
     const [isOpen, setIsOpen] = useState(false); // 카테고리 모달 상태
-    const [category, setCategory] = useState(null);
+    const [categoryArr, setCategoryArr] = useState([]); //카테고리 정보 저장 배열
 
     const imageInput = useRef(); //이미지 삽입 참조
+
+    const [itemInfo, setItemInfo] = useState({
+        title: "",
+        category: "",
+        text: "",
+        price: "",
+    });
 
     const openModalHandler = (event) => {
         setIsOpen(!isOpen);
@@ -160,6 +158,43 @@ const NewFeedView = () => {
         setImageArr(imageArr.filter((imgSrc) => imgSrc !== src));
     };
 
+    //카테고리 로딩
+    const categoryListAxios = () =>
+        axios
+            .get(url + "api/item/category", {
+                headers: headers,
+            })
+            .then((res) => setCategoryArr(res.data.data, ...categoryArr))
+            .catch((err) => {
+                alert("예기치못한 에러가 발생했습니다.");
+                console.log(err);
+            });
+
+    const newItemtAxios = () => {
+        const frm = new FormData(); //폼데이터 기록 변수
+
+        frm.append("title", itemInfo.title);
+        frm.append("category", itemInfo.category);
+        frm.append("text", itemInfo.text);
+        frm.append("files", imageInput.current.files[0]);
+        frm.append("price", itemInfo.price);
+        axios
+            .post(url + "api/item", frm, {
+                headers: headers,
+            })
+            .then((res) => {
+                alert(itemInfo.title + "등록이 완료되었습니다.");
+                navigate("/home");
+            })
+            .catch((err) => {
+                alert("예기치못한 에러가 발생했습니다.");
+                console.log(err);
+            });
+    };
+
+    //카테고리 로딩 실행
+    categoryListAxios();
+
     return (
         <div className="newfeed-container">
             {/* 이거 상위탭에 넣을지?? */}
@@ -167,6 +202,7 @@ const NewFeedView = () => {
                 type="submit"
                 className="newfeed-submit-btn"
                 onClick={() => {
+                    newItemtAxios();
                     //서버로 보내는 함수 넣기
                 }}
             >
@@ -189,11 +225,14 @@ const NewFeedView = () => {
                                 event.stopPropagation();
                             }}
                         >
-                            {CategoryArr.map((el, index) => (
+                            {categoryArr.map((el, index) => (
                                 <ModalList
                                     onClick={() => {
                                         //카테고리 설정 후 모달 닫기
-                                        setCategory(el);
+                                        setItemInfo({
+                                            ...itemInfo,
+                                            category: el,
+                                        });
                                         openModalHandler();
                                     }}
                                 >
@@ -227,21 +266,45 @@ const NewFeedView = () => {
                     </ImageContainer>
                 ))}
             </div>
-            <input className="newfeed-list" type="text" placeholder="제목" />
+
+            <input
+                className="newfeed-list"
+                value={itemInfo.title}
+                onChange={(e) =>
+                    setItemInfo({ ...itemInfo, title: e.target.value })
+                }
+                type="text"
+                placeholder="제목"
+            />
+
             <button
                 type="button"
+                value={itemInfo.category}
+                onChange={(e) =>
+                    setItemInfo({ ...itemInfo, itemInfo: e.target.value })
+                }
                 className="newfeed-list"
                 onClick={openModalHandler}
             >
-                {category === null ? "카테고리" : category}
+                {itemInfo.category === "" ? "카테고리" : itemInfo.category}
             </button>
+
             <input
                 className="newfeed-list"
+                value={itemInfo.price}
+                onChange={(e) =>
+                    setItemInfo({ ...itemInfo, price: e.target.value })
+                }
                 type="number"
                 placeholder="가격(원)"
             />
+
             <textarea
                 className="newfeed-list newfeed-guide"
+                value={itemInfo.text}
+                onChange={(e) =>
+                    setItemInfo({ ...itemInfo, text: e.target.value })
+                }
                 placeholder="게시글 내용을 작성해주세요. 가짜 품목 및 판매금지품목은 게시가
                 제한됩니다."
             ></textarea>

@@ -29,7 +29,7 @@ const MenuHome = () => {
                 console.log(err);
             });
 
-    itemListAxios();
+    // itemListAxios();
 
     return (
         <div className="contents-view">

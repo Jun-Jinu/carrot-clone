@@ -21,8 +21,7 @@ const CategoryView = () => {
         Authorization: `Bearer ${access_token}`,
     };
 
-    //카테고리 정보 저장 배열
-    const [categoryArr, setCategoryArr] = useState([]);
+    const [categoryArr, setCategoryArr] = useState([]); //카테고리 정보 저장 배열
 
     //카테고리 로딩
     const categoryListAxios = () =>
