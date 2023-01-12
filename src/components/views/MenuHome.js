@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -29,7 +29,10 @@ const MenuHome = () => {
                 console.log(err);
             });
 
-    // itemListAxios();
+    useEffect(() => {
+        console.log("아이템 리스트 호출");
+        itemListAxios();
+    }, []);
 
     return (
         <div className="contents-view">

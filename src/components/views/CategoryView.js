@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import { useRecoilValue } from "recoil";
@@ -35,7 +35,9 @@ const CategoryView = () => {
                 console.log(err);
             });
 
-    categoryListAxios();
+    useEffect(() => {
+        categoryListAxios();
+    }, []);
 
     return (
         <div className="category-container">

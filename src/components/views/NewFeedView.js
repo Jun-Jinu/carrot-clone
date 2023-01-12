@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
@@ -192,8 +192,11 @@ const NewFeedView = () => {
             });
     };
 
-    //카테고리 로딩 실행
-    categoryListAxios();
+    useEffect(() => {
+        //카테고리 로딩 실행
+        console.log("카테고리 리스트 호출");
+        categoryListAxios();
+    }, []);
 
     return (
         <div className="newfeed-container">
