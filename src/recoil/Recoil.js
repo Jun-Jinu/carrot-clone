@@ -10,6 +10,16 @@ export const webUrlState = atom({
     default: "http://3.35.176.110:8080/",
 });
 
+export const loginUserState = atom({
+    key: "loginUserState",
+    default: [
+        {
+            nickName: "",
+            userId: 0,
+        },
+    ],
+});
+
 // export const getToken = selector({
 //     key: "getToken",
 //     get: ({ get }) => {
