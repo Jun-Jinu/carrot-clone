@@ -23,7 +23,10 @@ const MenuHome = () => {
             .get(url + "api/item?page=0", {
                 headers: headers,
             })
-            .then((res) => setItemArr(res.data.data.content))
+            .then((res) => {
+                setItemArr(res.data.data.content);
+                console.log(res.data.data.content);
+            })
             .catch((err) => {
                 alert("예기치못한 에러가 발생했습니다.");
                 console.log(err);

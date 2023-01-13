@@ -12,7 +12,7 @@ const ItemCard = (props) => {
     
     return (
         <>
-            <Link to={link}>
+            <Link to={link + "/2"}>
                 <div className="card-container">
                     <div className="card-img-container">
                         <img

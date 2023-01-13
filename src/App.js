@@ -53,9 +53,9 @@ function App() {
                             path="/chatting_list"
                             element={<ChattingListPage />}
                         />
-                        <Route path="/item" element={<ItemPage />} />
+                        <Route path="/item/:itemId" element={<ItemPage />} />
                         <Route
-                            path="/item_selling"
+                            path="/item_selling/:itemId"
                             element={<ItemSellPage />}
                         />
                         <Route path="/like_list" element={<LikeListPage />} />
