@@ -49,7 +49,7 @@ const MenuHome = () => {
                 <ItemCard
                     title={el.title}
                     imgUrl={el.url}
-                    price={el.price}
+                    price={el.price.toLocaleString("ko-KR", 4)}
                     likeCount={el.likeCount}
                     status={el.status}
                 />

@@ -1,21 +1,82 @@
-import React, {useState} from "react";
-import { Link } from "react-router-dom";
+import React, {useState, useEffect} from "react";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+import { useRecoilValue } from "recoil";
+import { webUrlState } from "../../recoil/Recoil";
+
 import { IoHeartOutline, IoHeart } from "react-icons/io5";
 
 import './styles/ItemBottomBar.scss';
 
 const ItemBottomBar = (props) => {
-    const [isLike, setIsLike] = useState(false);
+    const { itemId } = useParams();
+    const url = useRecoilValue(webUrlState);
+    const access_token = localStorage.getItem("access_token");
+    const headers = {
+        Authorization: `Bearer ${access_token}`,
+    };
 
+    //상품 정보 상태
+    const [itemInfo, setItemInfo] = useState({
+        price: 0,
+        like: false,
+    });
+
+
+    // 좋아요를 누를 경우
     const likeHandler = () =>{
-        setIsLike(!isLike);
+        setItemInfo({...itemInfo, like: !itemInfo.like});
+
+        // axios
+        //     .post(url + "api/like/" + itemId, {
+        //         headers: headers,
+        //     })
+        //     .then((res) => {
+        //         // console.log(res.data.data);
+        //         let resData = res.data.data;
+
+        //         //아이템 정보 저장
+        //         setItemInfo({
+        //             price: resData.price,
+        //             like: resData.like,
+        //         });
+        //     })
+        //     .catch((err) => {
+        //         alert("예기치못한 에러가 발생했습니다.");
+        //         console.log("에러 내용: " + err);
+        //     });
     }
+
+    const itemLoadAxios = () =>
+        axios
+            .get(url + "api/item/" + itemId, {
+                headers: headers,
+            })
+            .then((res) => {
+                // console.log(res.data.data);
+                let resData = res.data.data;
+
+                //아이템 정보 저장
+                setItemInfo({
+                    price: resData.price,
+                    like: resData.like,
+                });
+            })
+            .catch((err) => {
+                alert("예기치못한 에러가 발생했습니다.");
+                console.log("에러 내용: " + err);
+            });
+
+    useEffect(() => {
+        console.log("서버 데이터 호출");
+        itemLoadAxios();
+    }, []);
 
     return (
         <div className="bottom-bar">
             <div className="bottom-left-container" onClick={likeHandler}>
-                {isLike === false ? (<IoHeartOutline className="bottom-left-icon" />) : (<IoHeart className="bottom-left-icon" />)}
-                <div className="bottom-left-price">가격</div>
+                {itemInfo.like === false ? (<IoHeartOutline className="bottom-left-icon" />) : (<IoHeart className="bottom-left-icon" />)}
+                <div className="bottom-left-price">{itemInfo.price.toLocaleString("ko-KR", 4)} 원</div>
             </div>
             {props.menuNum === 1 ? (
             <Link to="/chatting_list">

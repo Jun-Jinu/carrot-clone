@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-import { useRecoilValue } from "recoil";
-import { webUrlState } from "../../recoil/Recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { webUrlState, loginUserState } from "../../recoil/Recoil";
+
 import "../styles/IntroPages.scss";
 
 import Button from "../../components/utils/Button";
 
 const LoginPage = () => {
     const url = useRecoilValue(webUrlState);
+    const setLoginUser = useSetRecoilState(loginUserState);
+
     const navigate = useNavigate();
 
     const [loginInfo, setLoginInfo] = useState({
@@ -22,11 +25,15 @@ const LoginPage = () => {
             .post(url + "api/user/login", loginInfo)
             .then((res) => {
                 if (res.data.success === true) {
+                    let userData = res.data.data;
                     // 로그인 성공시
-                    localStorage.setItem(
-                        "access_token",
-                        res.data.data.accessToken
-                    );
+                    localStorage.setItem("access_token", userData.accessToken);
+                    setLoginUser({
+                        nickName: userData.nickName,
+                        userId: userData.userId,
+                    });
+
+                    // console.log(res);
                     navigate("/home");
                 } else {
                     // 신호 성공, 로그인 정보 불일치

@@ -25,7 +25,7 @@ const ItemCard = (props) => {
                     <div className="card-info">
                         <span className="card-name">{props.title}</span>
                         <br />
-                        <span className="card-price">{props.price} 원</span>
+                        <span className="card-price">{props.price.toLocaleString("ko-KR", 4)} 원</span>
 
                         {// 0이 아닌경우에만 표시
                             props.likeCount !== 0 && (

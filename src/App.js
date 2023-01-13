@@ -66,7 +66,7 @@ function App() {
                         />
                         <Route path="/new_feed" element={<NewFeedPage />} />
                         <Route
-                            path="/user_sell_list"
+                            path="/user_sell_list/:userId/:nickName"
                             element={<UserSellList />}
                         />
                     </Routes>

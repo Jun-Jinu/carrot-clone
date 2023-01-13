@@ -32,10 +32,8 @@ const ItemView = () => {
         photoUrls: "",
         title: "",
         category: "",
-        price: "",
         text: "",
         updatedAt: "",
-        likeCount: "",
         status: "",
     });
 
@@ -63,10 +61,8 @@ const ItemView = () => {
                     photoUrls: resData.photoUrls[0],
                     title: resData.title,
                     category: resData.category,
-                    price: resData.price,
                     text: resData.text,
                     updatedAt: resData.updatedAt,
-                    likeCount: resData.likeCount,
                     status: resData.status,
                 });
 
@@ -86,7 +82,7 @@ const ItemView = () => {
             });
 
     useEffect(() => {
-        console.log("호출호출");
+        console.log("서버 데이터 호출");
         itemLoadAxios();
     }, []);
 
@@ -139,20 +135,29 @@ const ItemView = () => {
                         {ownerInfo.nickName}님의 판매 상품
                     </span>
                     <Link
-                        to="/user_sell_list"
+                        to={
+                            "/user_sell_list/" +
+                            ownerInfo.userId +
+                            "/" +
+                            ownerInfo.nickName
+                        }
                         style={{ textDecoration: "none" }}
                     >
                         <span className="view-all">모두보기</span>
                     </Link>
                 </div>
                 <div className="item-list-container">
-                    {ownerItems.map((el, index) => (
-                        <SellingItem
-                            url={el.url}
-                            title={el.title}
-                            price={el.price}
-                        />
-                    ))}
+                    {ownerItems
+                        .filter((el, index) => index < 4)
+                        .map((el, index) => (
+                            <SellingItem
+                                url={el.url}
+                                title={el.title}
+                                price={
+                                    el.price.toLocaleString("ko-KR", 4) + "원"
+                                }
+                            />
+                        ))}
                 </div>
             </div>
         </div>

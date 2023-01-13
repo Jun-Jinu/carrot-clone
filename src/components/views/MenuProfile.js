@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
+
+import { useRecoilValue } from "recoil";
+import { loginUserState } from "../../recoil/Recoil";
+
 import { TbUserCircle } from "react-icons/tb";
 
 import {
@@ -13,13 +17,17 @@ import {
 import "./styles/MenuProfile.scss";
 
 const MenuProfile = () => {
+    const loginUser = useRecoilValue(loginUserState);
+
     return (
         <div className="contents-view">
             <div className="main-menu-container">
                 <div className="main-menu-icon">
                     <TbUserCircle size="60px" />
                 </div>
-                <span className="main-menu-name nickname">닉네임</span>
+                <span className="main-menu-name nickname">
+                    {loginUser.nickName}
+                </span>
             </div>
 
             <Link to="/myprofile" style={{ textDecoration: "none" }}>
